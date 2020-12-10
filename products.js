@@ -13,6 +13,16 @@ var app = new Vue({
         console.log(response);
         this.todos = response.data;
       });
+    },
+    createData: function () {
+      axios.post('http://localhost:3000/api/products', {
+        name: "iphone",
+        description: "a smart phone",
+        price: 800,
+        image_url: 'asljdhfal'
+      }).then(response => {
+        console.log(response);
+      });
     }
   }
 });

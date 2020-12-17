@@ -7,13 +7,13 @@ class Api::ProductsController < ApplicationController
 
   def create
     @product = Product.new(
-                           name: params[:name],
-                           price: params[:price],
-                           description: params[:description],
-                           image_url: params[:image_url]
-                          )
+      name: params[:name],
+      price: params[:price],
+      description: params[:description],
+      image_url: params[:image_url]
+    )
 
-    if @product.save
+    if @product.save!
       render 'show.json.jbuilder'
     else
       render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
